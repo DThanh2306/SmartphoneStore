@@ -1,0 +1,173 @@
+components:
+  schemas:
+    Product:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of the product
+        avatar:
+          type: string
+          readOnly: true # Returned by HTTP GET
+          description: URL of the product image
+        avatarFile:
+          type: string
+          format: binary
+          writeOnly: true # Used in POST/PUT/PATCH
+          description: contact avatar file
+        brand:
+          type: string
+          description: Brand of the product
+        refresh_rate:
+          type: string
+          description: Refresh rate of the display
+        resolution:
+          type: string
+          description: Screen resolution
+        screen_size:
+          type: string
+          description: Size of the screen
+        brightness:
+          type: string
+          description: Brightness of the screen
+        operating_system:
+          type: string
+          description: Operating system of the product
+        additional_features:
+          type: object
+          description: Additional features of the product
+        ram:
+          type: string
+          description: RAM capacity
+        rom:
+          type: string
+          description: ROM capacity
+        price:
+          type: number
+          description: Price of the product
+        stock_quantity:
+          type: integer
+          description: Available stock quantity
+    User:
+      type: object
+      properties:
+        u_acc:
+          type: string
+          description: Username
+        acc_pwd:
+          type: string
+          description: Password
+        u_name:
+          type: string
+          description: full's Name of User
+        u_phone:
+          type: string
+          description: NumberPhone of User
+        u_add_street:
+          type: string
+          description: User's Street living
+        u_add_district:
+          type: string
+          description: user's district living
+        u_add_city:
+          type: string
+          description: user's city living
+        u_add_province:
+          type: object
+          description: user's province living
+    Order:
+      type: object
+      properties:
+        order_id:
+          type: integer
+          example: 1
+        user_id:
+          type: string
+        total_price:
+          type: number
+          format: float
+          example: 1999.99
+        order_date:
+          type: string
+          format: date-time
+          example: "2024-10-12T10:00:00.000Z"
+        status:
+          type: string
+          example: "pending"
+    OrderCreate:
+      type: object
+      properties:
+        total_price:
+          type: number
+          format: float
+        cart_items:
+          type: array
+          items:
+            type: object
+            properties:
+              product_id:
+                type: integer
+              quantity:
+                type: integer
+  responses:
+    200NoData:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: string
+                enum:
+                  - success
+              data:
+                type: object
+                nullable: true
+    400BadRequest:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: string
+                enum:
+                  - error
+              message:
+                type: string
+    404NotFound:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: string
+                enum:
+                  - error
+              message:
+                type: string
+    405MethodNotAllowed:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: string
+                enum:
+                  - error
+              message:
+                type: string
+    500InternalServerError:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: string
+                enum:
+                  - error
+              message:
+                type: string

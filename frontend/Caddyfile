@@ -1,0 +1,14 @@
+localhost {
+	root * dist
+	file_server
+
+	# Chuyển hướng tất cả các yêu cầu không tìm thấy file tới index.html (SPA mode)
+	try_files {path} /index.html
+
+	# Reverse proxy để kết nối API từ frontend tới backend
+
+	handle_path /api/* {
+		reverse_proxy http://localhost:3000 {
+		}
+	}
+}
