@@ -23,7 +23,7 @@ async function efetch(url, options = {}) {
     }
 }
 
-const cartUrl = 'https://smartphonestore-backend.onrender.com/api/v1/cart';
+const cartUrl = '/api/v1/cart';
 
 function cartService() {
     // Thêm sản phẩm vào giỏ hàng

@@ -13,7 +13,7 @@ async function efetch(url, options = {}) {
   }
 }
 
-const userUrl = 'https://smartphonestore-backend.onrender.com/api/v1/user/filter';
+const userUrl = '/api/v1/user/filter';
 
 async function filterUsers({
   u_acc,

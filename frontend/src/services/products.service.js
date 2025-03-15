@@ -22,7 +22,7 @@ async function efetch(url, options = {}) {
   }
 }
 
-const productUrl = 'https://smartphonestore-backend.onrender.com/api/v1/products';
+const productUrl = '/api/v1/products';
 
 function ProductsService() {
   // Phương thức lọc sản phẩm
