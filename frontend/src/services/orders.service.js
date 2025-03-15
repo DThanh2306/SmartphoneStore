@@ -24,7 +24,7 @@ async function efetch(url, options = {}) {
 }
 
 
-const orderUrl = 'http://localhost:3000/api/v1/orders';
+const orderUrl = 'hhttps://smartphonestore-backend.onrender.com/api/v1/orders';
 
 function ordersService() {
     async function getAllOrders() {

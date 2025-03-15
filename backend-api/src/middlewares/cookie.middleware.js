@@ -1,13 +1,13 @@
 function setUserSessionCookie(res, userAcc, userRole) {
     res.cookie('user_session', userAcc, {
         httpOnly: true,
-        secure: false,
+        secure: true,
         sameSite: 'None',
         maxAge: 24 * 60 * 60 * 1000,
     });
     res.cookie('user_role', userRole, {
         httpOnly: true,
-        secure: false,
+        secure: true,
         sameSite: 'None',
         maxAge: 24 * 60 * 60 * 1000,
     });

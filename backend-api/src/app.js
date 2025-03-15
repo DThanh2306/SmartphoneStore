@@ -17,7 +17,7 @@ const {
 } = require("./controllers/errors.controller");
 app.use(cookieParser()); // Thêm cookie-parser để sử dụng cookie
 app.use(cors({
-  origin: ['http://localhost:5173','https://localhost' ], // Hoặc một danh sách các nguồn cụ thể
+  origin: ['https://dthanh2306.github.io/SmartphoneStore/','http://localhost:5173','https://localhost' ], // Hoặc một danh sách các nguồn cụ thể
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH'],
   credentials: true, // Cho phép cookie và thông tin xác thực
 }));
